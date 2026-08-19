@@ -33,14 +33,33 @@
 \addtolength{\oddsidemargin}{-0.375in}
 \addtolength{\evensidemargin}{-0.375in}
 \addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
+\addtolength{\topmargin}{-.6in}
+\addtolength{\textheight}{1.5in}
 
 \urlstyle{same}
 
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
+
+% List spacing. Kept even and readable rather than squeezed: itemsep is
+% reduced, not zeroed, and topsep is left at its default on purpose --
+% the \resumeSubheading macros already end with \vspace{-5pt}, so
+% shrinking topsep pulls the first bullet up into the heading line and
+% the two print on top of each other. The space for a single page comes
+% from the page geometry above instead.
+% Vertical rhythm, measured baseline-to-baseline on the built PDF.
+%
+% topsep governs the gap before the FIRST bullet of an entry; itemsep
+% governs the gap before every following bullet. Left at their defaults
+% these disagreed (11.5pt vs 17.9pt), so bullet 1 hugged its heading
+% while bullet 2 floated. Both are now tuned to land on the same ~16pt.
+%
+% topsep must never be shrunk below the default: \resumeSubheading ends
+% with \vspace{-5pt}, and a small topsep lets that pull the first bullet
+% up onto the heading line so the two print on top of each other.
+\setlist[itemize,1]{leftmargin=*, parsep=0pt, itemsep=9pt}
+\setlist[itemize,2]{parsep=0pt, topsep=9pt, itemsep=6pt}
 
 % Sections formatting
 \titleformat{\section}{
@@ -66,13 +85,14 @@
 \newcommand{\expSubheading}[3]{
   \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textbf{#1} -- \textit{#2} & #3 \\
+      \textbf{#1} -- \textit{\small #2} & \small #3 \\
     \end{tabular*}\vspace{-5pt}
 }
 
 \newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
 
-\renewcommand{\labelitemii}{$\circ$}
+% \small so the marker matches the \small text of \resumeItem
+\renewcommand{\labelitemii}{\small$\circ$}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
@@ -98,8 +118,8 @@
 
 %--------SKILLS------------
 \section{Skills}
-\textbf{Languages:} Typescript, JavaScript, SQL, Java, C++ \\
-\textbf{Frameworks/Technologies:} React.js, Next.js, GraphQL, Prisma, MongoDB, MCP-servers, Langchain, Nodejs \\
+\textbf{Languages:} Typescript, JavaScript, Python, SQL, Java, C++ \\
+\textbf{Frameworks/Technologies:} React.js, Next.js, React Native, Node.js, FastAPI, GraphQL, Prisma, MongoDB, MCP-servers, Langchain \\
 \textbf{Developer Tools:} GitHub, Docker, Postman, Cursor, AWS, Postgres \\
 \textbf{Core CS:} OOPS, Computer Networks, TCP/IP networks, DBMS, SQL, OS, Gen AI.
 
@@ -109,28 +129,17 @@
   \resumeSubheading
     {Dayananda Sagar College of Engineering}{Bengaluru, KA}
     {B.E in Information Science (VTU);  SGPA: 9.0}{2022 -- 2026}
-  \resumeSubheading
-    {Arihant Public School}{Kota, RJ}
-    {CBSE – Higher Secondary (Senior School);  88\%}{2020 -- 2022}
 \resumeSubHeadingListEnd
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
 \resumeSubHeadingListStart
   \resumeSubheading
-    {Clear (ClearTax)}{Bengaluru, KA}
-    {[JOB TITLE — e.g. Software Engineer]}{[MMM YYYY] -- Present}
+    {Clear (formerly ClearTax)}{Bengaluru, KA}
+    {Software Engineer (Full-time) --- converted from 6-month internship}{Nov 2025 -- Present}
     \resumeItemListStart
-      \resumeItem{Build and ship full-stack features across [PRODUCT] — [web app / mobile app / internal dashboard] — used by [N] [users/merchants/customers], owning work end to end from API design to release.}
-      \resumeItem{\textbf{Backend:} designed and shipped [N] REST/GraphQL services in [Node.js / Java] backed by [Postgres / MongoDB], [what it does] — [impact: latency down X\%, throughput, queries served/day].}
-      \resumeItem{\textbf{Frontend/App:} built [screens/flows] in [React.js / Next.js / React Native], [specific win — e.g. cut page load from Xs to Ys, replaced N manual steps, raised conversion by Z\%].}
-    \resumeItemListEnd
-
-  \expSubheading
-    {JP Morgan Certification Programme}{Forage}{2024}
-    \resumeItemListStart
-      \resumeItem{Fixed broken files in the repository to ensure correct web application output, handled breakpoints in services, and optimized backend data for specificity and reduced redundancy.}
-      \resumeItem{Used JP Morgan Chase's open-source library \textbf{Perspective} to generate live graphs that display the data feed in a clear and visually appealing way for traders to monitor.}
+      \resumeItem{\textbf{Backend:} built and tested scalable APIs using \textbf{GraphQL} and \textbf{FastAPI} (Python), contributing to backend feature design and improving service reliability across production services.}
+      \resumeItem{\textbf{App/Frontend:} worked across the stack on \textbf{React Native} and \textbf{Android}, implementing features and resolving platform-specific issues in production.}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
@@ -145,13 +154,6 @@
     \resumeItemListEnd
 
   \expSubheading
-    {Contest-Tracker}{React.js, MongoDB, Tailwind, Data-Scraping}{\href{https://assignment-psi-ivory.vercel.app}{Deployed Project}}
-    \resumeItemListStart
-      \resumeItem{Designed and developed a Contest Tracker that aggregates contest data from LeetCode, Codeforces, and CodeChef into a single dashboard.}
-      \resumeItem{Implemented YouTube TLE Eliminator contest video integration as reference solutions, reducing the need for manual searches and improving user experience.}
-    \resumeItemListEnd
-
-  \expSubheading
     {Splitmate-app}{Typescript, React-Native, Nativewind}{\href{https://github.com/noogler-eng/expense-tracker}{Android App Package}}
     \resumeItemListStart
       \resumeItem{Developed \textbf{Splitmate}, a lightweight React Native application for managing shared expenses with friends. Implemented features like bill splitting, adding payments to friends, and offline-first local data storage.}
@@ -163,10 +165,10 @@
 \section{Achievements}
 \resumeSubHeadingListStart
   \expSubheading
-    {[HACKATHON NAME] — \textbf{Winner}}{[Track / Prize, e.g. ``1st Place, Overall'']}{[MMM YYYY]}
+    {Clear Hackathon Season 4 --- \textbf{Winning Team}}{Team ``Stop Loss'', Rs.~1,75,000 prize}{2026}
     \resumeItemListStart
-      \resumeItem{Won [1st place / the X track] out of [N] competing teams at [organizer / venue], building [what you built] in [duration].}
-      \resumeItem{[One line on the tech and why it won — the problem it solved and the part you personally built.]}
+      \resumeItem{Selected as one of three winning teams out of \textbf{40+} teams competing across functions in Clear's largest internal hackathon; winning projects were taken forward into production.}
+      \resumeItem{Built the project with a five-member cross-functional team under a fixed hackathon deadline.}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
