@@ -48,12 +48,18 @@
 % shrinking topsep pulls the first bullet up into the heading line and
 % the two print on top of each other. The space for a single page comes
 % from the page geometry above instead.
-% Note: \resumeItem ends with \vspace{-2pt}, so the visible gap between
-% consecutive bullets is itemsep minus 2pt. At itemsep=2pt that came out
-% at 11.5pt, tighter than the 12.7pt pitch of a wrapped line inside a
-% single bullet, which made continuous bullets run together.
+% Vertical rhythm, measured baseline-to-baseline on the built PDF.
+%
+% topsep governs the gap before the FIRST bullet of an entry; itemsep
+% governs the gap before every following bullet. Left at their defaults
+% these disagreed (11.5pt vs 17.9pt), so bullet 1 hugged its heading
+% while bullet 2 floated. Both are now tuned to land on the same ~16pt.
+%
+% topsep must never be shrunk below the default: \resumeSubheading ends
+% with \vspace{-5pt}, and a small topsep lets that pull the first bullet
+% up onto the heading line so the two print on top of each other.
 \setlist[itemize,1]{leftmargin=*, parsep=0pt, itemsep=9pt}
-\setlist[itemize,2]{parsep=0pt, itemsep=8pt}
+\setlist[itemize,2]{parsep=0pt, topsep=9pt, itemsep=6pt}
 
 % Sections formatting
 \titleformat{\section}{
