@@ -48,8 +48,12 @@
 % shrinking topsep pulls the first bullet up into the heading line and
 % the two print on top of each other. The space for a single page comes
 % from the page geometry above instead.
-\setlist[itemize,1]{leftmargin=*, parsep=0pt, itemsep=2pt}
-\setlist[itemize,2]{parsep=0pt, itemsep=2pt}
+% Note: \resumeItem ends with \vspace{-2pt}, so the visible gap between
+% consecutive bullets is itemsep minus 2pt. At itemsep=2pt that came out
+% at 11.5pt, tighter than the 12.7pt pitch of a wrapped line inside a
+% single bullet, which made continuous bullets run together.
+\setlist[itemize,1]{leftmargin=*, parsep=0pt, itemsep=9pt}
+\setlist[itemize,2]{parsep=0pt, itemsep=8pt}
 
 % Sections formatting
 \titleformat{\section}{
