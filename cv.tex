@@ -34,7 +34,7 @@
 \addtolength{\evensidemargin}{-0.375in}
 \addtolength{\textwidth}{1in}
 \addtolength{\topmargin}{-.6in}
-\addtolength{\textheight}{1.3in}
+\addtolength{\textheight}{1.5in}
 
 \urlstyle{same}
 
@@ -42,13 +42,14 @@
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-% Tighten list spacing so the whole CV fits on one page.
-% Only parsep/itemsep (the gap BETWEEN items) is zeroed. topsep is left at
-% its default on purpose: the \resumeSubheading macros already end with a
-% \vspace{-5pt}, so shrinking topsep pulls the first bullet up into the
-% heading line and the two print on top of each other.
-\setlist[itemize,1]{leftmargin=*, parsep=0pt, itemsep=0pt}
-\setlist[itemize,2]{parsep=0pt, itemsep=0pt}
+% List spacing. Kept even and readable rather than squeezed: itemsep is
+% reduced, not zeroed, and topsep is left at its default on purpose --
+% the \resumeSubheading macros already end with \vspace{-5pt}, so
+% shrinking topsep pulls the first bullet up into the heading line and
+% the two print on top of each other. The space for a single page comes
+% from the page geometry above instead.
+\setlist[itemize,1]{leftmargin=*, parsep=0pt, itemsep=2pt}
+\setlist[itemize,2]{parsep=0pt, itemsep=2pt}
 
 % Sections formatting
 \titleformat{\section}{
