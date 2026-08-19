@@ -42,9 +42,13 @@
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-% Tighten list spacing so the whole CV fits on one page
-\setlist[itemize,1]{leftmargin=*, topsep=1pt, partopsep=0pt, parsep=0pt, itemsep=1pt}
-\setlist[itemize,2]{leftmargin=1.3em, topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt}
+% Tighten list spacing so the whole CV fits on one page.
+% Only parsep/itemsep (the gap BETWEEN items) is zeroed. topsep is left at
+% its default on purpose: the \resumeSubheading macros already end with a
+% \vspace{-5pt}, so shrinking topsep pulls the first bullet up into the
+% heading line and the two print on top of each other.
+\setlist[itemize,1]{leftmargin=*, parsep=0pt, itemsep=0pt}
+\setlist[itemize,2]{parsep=0pt, itemsep=0pt}
 
 % Sections formatting
 \titleformat{\section}{
@@ -124,14 +128,6 @@
     \resumeItemListStart
       \resumeItem{\textbf{Backend:} built and tested scalable APIs using \textbf{GraphQL} and \textbf{FastAPI} (Python), contributing to backend feature design and improving service reliability across production services.}
       \resumeItem{\textbf{App/Frontend:} worked across the stack on \textbf{React Native} and \textbf{Android}, implementing features and resolving platform-specific issues in production.}
-      \resumeItem{Joined as a Software Engineer Intern (Nov 2025 -- Apr 2026) and converted to a full-time Software Engineer in May 2026 after shipping backend and mobile features to production.}
-    \resumeItemListEnd
-
-  \expSubheading
-    {JP Morgan Certification Programme}{Forage}{2024}
-    \resumeItemListStart
-      \resumeItem{Fixed broken files in the repository to ensure correct web application output, handled breakpoints in services, and optimized backend data for specificity and reduced redundancy.}
-      \resumeItem{Used JP Morgan Chase's open-source library \textbf{Perspective} to generate live graphs that display the data feed in a clear and visually appealing way for traders to monitor.}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
