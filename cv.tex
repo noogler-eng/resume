@@ -79,13 +79,14 @@
 \newcommand{\expSubheading}[3]{
   \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textbf{#1} -- \textit{#2} & #3 \\
+      \textbf{#1} -- \textit{\small #2} & \small #3 \\
     \end{tabular*}\vspace{-5pt}
 }
 
 \newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
 
-\renewcommand{\labelitemii}{$\circ$}
+% \small so the marker matches the \small text of \resumeItem
+\renewcommand{\labelitemii}{\small$\circ$}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
