@@ -13,10 +13,13 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v4
       - name: cv
-        uses: dante-ev/latex-action@latest
+        uses: dante-ev/latex-action@2026-A
         with:
           root_file: ${{ env.FILE }}
           working_directory: ${{ env.DIR }}
+      - name: Show LaTeX log on failure
+        if: failure()
+        run: cat ${{ env.DIR }}/${{ env.FILE }}.log
       - name: move
         run: mkdir -p github_artifacts && mv ${{ env.DIR }}/${{ env.FILE }}.pdf ./github_artifacts/
       - name: Upload pdf as artifact
